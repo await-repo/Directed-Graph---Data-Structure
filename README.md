@@ -27,6 +27,12 @@ Tenemos el siguiente Grafo Dirigido, el nuevo nodo que se agregó fue el Nodo X 
 
 ![GraphExample2](https://user-images.githubusercontent.com/115047831/214966495-c6086fe8-a3a5-414f-9421-9d47259c331f.PNG)
 
+Las instrucciones para agregar un Vertice (Nodo) son las siguientes.
+```java
+public void insertVertex(Node node){
+    nodes.add(node);
+}
+```
 
 ## Agregar Arista
 
@@ -34,15 +40,22 @@ Tenemos el siguiente Grafo Dirigido, si queremos conectar el Nodo X (Café) debe
 
 ![GraphExample3](https://user-images.githubusercontent.com/115047831/214968023-007a1c8e-fe04-4e7a-9a88-6d3923248cd8.PNG)
 
+Las instrucciones para agregar una Arista son las siguientes.
+```java
+public void insertEdge (Node origin, Node destination) {
+    edges.add(new Edge(origin,destination));
+}
+```
+
 ## Eliminar Vertice (Nodo)
 
 **Cuando se elimina un Nodo del grafo también se eliminan todas las aristas que lo conectaban.**
 
 Ya que debemos de eliminar tanto el nodo como sus aristas debemos de buscarlos dentro de sus colecciones de nodos y aristas, en el caso de las aristas se deben de eliminar todas en donde aparezca el nodo a eliminar ya sea como nodo de origen o nodo de destino.
 
-Las instrucciones para realizar la eliminación de un Vertice (Nodo) es la siguiente.
+Las instrucciones para realizar la eliminación de un Vertice (Nodo) son las siguientes.
 ```java
-void deleteVertex (Node node) {
+public void deleteVertex (Node node) {
     nodes.removeIf(aux -> aux == node);
     edges.removeIf(edge -> edge.start == node || edge.end == node);
 }
@@ -58,4 +71,3 @@ Si eliminamos el Nodo C (Rojo) el grafo quedaría de la siguiente forma.
 > **Nota:** El siguiente diagrama de clases representa la lógica de programación utilizada para construir un **Grafo Dirigido**. La clase **test** no se incluye en el diagrama UML porque solo contiene el método main y únicamente es utilizada para demostrar el funcionamiento de los métodos del Grafo dirigido.
 
 ![UML Graph](https://user-images.githubusercontent.com/115047831/214956238-0c0e9637-dce2-413f-90d6-dd3fbcbf552d.png)
-
